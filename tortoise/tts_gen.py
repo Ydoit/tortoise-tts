@@ -21,7 +21,7 @@ if torch.backends.mps.is_available():
     use_deepspeed = False
 os.makedirs(output_path, exist_ok=True)
 tts = TextToSpeech(models_dir=model_dir, use_deepspeed=use_deepspeed, kv_cache=kv_cache, half=half)
-def tts_gen_func(text,voice,index):
+def tts_gen_func(output_path,text,voice,index):
     selected_voices = voice.split(',')
     for k, selected_voice in enumerate(selected_voices):
         if '&' in selected_voice:
